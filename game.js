@@ -29,6 +29,16 @@ function preload() {
     // Load the sprite sheet for the stone man enemy
     this.load.image('stone_man', './assets/stone_man.svg');
 
+    // Load the sprite sheet for the jumper enemy using an embedded base64 image
+    this.load.spritesheet(
+        'jumper',
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAA8CAYAAACtrX6oAAAAtElEQVR4nO3RMQoCQRREwT/e/85jZLCgYKA78KgKO2p4MwAA/Nx6N+6ZffeRl/Xh08U+92/WF/9mn/s36/LvceoG9xA4TuA4geMEjhM4TuA4geMEjhM4TuA4geMEjhM4TuA4geMEjhM4TuA4geMEjhM4TuA4geMEjhM4TuA4geMEjhM4TuA4geMEjhM4TuA4geMEjhM4TuA4geMEjhMYAOAPnmFTBmaK9xOHAAAAAElFTkSuQmCC',
+        {
+            frameWidth: 40,
+            frameHeight: 60
+        }
+    );
+
     // Load parallax background layers
     this.load.image('background_layer_1', './assets/background_layer_1.png');
     this.load.image('background_layer_2', './assets/background_layer_2.png');
@@ -108,6 +118,15 @@ function create() {
     enemy.body.setAllowGravity(true);
     enemy.body.setCollideWorldBounds(true);
     enemy.body.setVelocityX(50); // Slower initial movement
+
+    // Add jumper enemy
+    const jumper = this.physics.add.sprite(500, 450, 'jumper');
+    jumper.body.setSize(40, 60);
+    jumper.body.setOffset(0, 0);
+    jumper.body.setAllowGravity(true);
+    jumper.body.setCollideWorldBounds(true);
+    jumper.type = 'jumper';
+    enemies.add(jumper);
 
     // Create projectiles group
     projectiles = this.physics.add.group();
@@ -224,7 +243,20 @@ function update() {
             } else if (enemy.body.blocked.left || enemy.x < enemyBounds.left) {
                 enemy.body.setVelocityX(50);
             }
-        } 
+        } else if (enemy.texture.key === 'jumper') {
+            updateJumper(enemy, player, this.time.now);
+
+            if (enemy.state === 'idle') {
+                if (enemy.body.velocity.x === 0) {
+                    enemy.body.setVelocityX(50);
+                }
+                if (enemy.body.blocked.right || enemy.x > enemyBounds.right) {
+                    enemy.body.setVelocityX(-50);
+                } else if (enemy.body.blocked.left || enemy.x < enemyBounds.left) {
+                    enemy.body.setVelocityX(50);
+                }
+            }
+        }
     });
 
     // Update power-up text
@@ -247,31 +279,31 @@ function update() {
 }
 
 function hitEnemy(player, enemy) {
-    // Check if player is jumping on enemy
-    if (player.body.touching.down && enemy.body.touching.up) {
+    const outcome = resolveCollision(player, enemy);
+    if (outcome === 'defeat') {
         // Create key collectible when enemy is defeated
         const key = this.physics.add.sprite(enemy.x, enemy.y, 'key');
         keys.add(key);
         enemy.destroy();
-        
+
         // Position key on ground
         key.y = 550; // Ground level
-        
+
         // Update total keys count
         totalKeys++;
     } else {
         // Player gets hurt: reduce life and check game over
         lives--;
         livesText.setText(`Lives: ${lives}`);
-        
+
         if (lives <= 0) {
             // Show game over text
-            const gameOverText = this.add.text(400, 300, 'Game Over', { 
-                fontSize: '40px', 
-                fill: '#FF0000' 
+            const gameOverText = this.add.text(400, 300, 'Game Over', {
+                fontSize: '40px',
+                fill: '#FF0000'
             });
             gameOverText.setOrigin(0.5);
-            
+
             // Restart after delay
             this.time.delayedCall(2000, () => {
                 this.scene.restart();
