@@ -1,0 +1,96 @@
+# Backpack Adventure Game - Product Requirements Document
+
+## 1. Overview
+- **Game Type**: 2D platformer (Mario-like)
+- **Character**: Red backpack with headphones, eyes, hands and legs
+- **Enemies**: Stone people with different behaviors
+- **Environment**: Violet sky, green grass ground with platforms
+- **Collectibles**: Keys (from enemies) and Stars (in level)
+
+## 2. Character Implementation
+- [x] Create player character (red rectangle placeholder)
+- [x] Implement movement controls (left/right)
+- [x] Implement jumping with physics
+- [x] Create backpack sprite with details (headphones, eyes, limbs)
+- [x] Add character animations (running, jumping)
+- [ ] Implement character power-up states
+
+## 3. Enemy Implementation
+- [x] Create stone people enemies (gray rectangles)
+- [x] Implement walker enemy type (horizontal movement)
+- [x] Add obstacle-aware navigation
+- [ ] Implement jumper enemy type
+- [ ] Implement thrower enemy type
+- [ ] Implement shooter enemy type
+- [ ] Create stone people sprites
+- [ ] Add enemy-specific behaviors and animations
+
+## 4. Game Environment
+- [x] Violet sky background
+- [x] Green grass ground
+- [x] Brown platforms
+- [x] Collision detection for all objects
+- [ ] Add parallax background layers
+- [ ] Create multiple levels with increasing difficulty
+- [ ] Add environmental hazards (spikes, pits)
+
+## 5. Collectibles System
+- [x] Implement key collectibles (orange)
+- [x] Keys drop from defeated enemies
+- [x] Implement star collectibles (yellow)
+- [x] Stars placed in level
+- [x] Score tracking system
+- [x] Add power-up items: speed
+- [ ] Add power-up items (health, invincibility)
+- [ ] Implement inventory system
+- [ ] Add collectible animations and effects
+
+## 6. Game Mechanics
+- [x] Player-enemy collision (damage)
+- [x] Jump-on-enemy defeat mechanic
+- [x] Collectible pickup system
+- [x] Score display
+- [x] Lives system with health UI
+- [ ] Level progression with unlockable stages
+- [x] Win/lose conditions
+- [ ] Time-based challenges
+- [ ] Implement checkpoint system
+
+## 7. Technical Implementation
+- [x] Set up Phaser.js framework
+- [x] Create core game loop
+- [x] Physics engine configuration
+- [x] Collision groups setup
+- [x] Input handling
+- [ ] Audio system (SFX, music)
+- [ ] Particle effects
+- [ ] Implement state management for game progression
+- [ ] Add save/load functionality
+- [ ] Optimize asset loading
+
+## 8. Current Game State
+- Basic gameplay loop complete
+- Core mechanics implemented with placeholders
+- All objects have proper physics and collisions
+- Enemies patrol between obstacles
+- Collectibles work as expected
+
+## 9. UI/UX Improvements
+- [ ] Create polished start screen
+- [ ] Implement pause menu
+- [x] Add win/lose screens
+- [ ] Create level selection interface
+- [ ] Improve HUD with better visuals
+- [ ] Add settings menu (sound, controls)
+
+## 10. Next Steps
+1. Replace placeholders with actual sprites
+2. Implement additional enemy types and behaviors
+3. Add sound effects and background music
+4. Create multiple levels with unique challenges
+5. Polish UI/UX with themed design elements
+6. Add game start/end screens
+7. Implement power-up system and inventory
+8. Add lives system and win/lose conditions
+9. Create parallax background layers
+10. Optimize game performance
