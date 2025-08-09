@@ -13,7 +13,7 @@
 - [x] Implement jumping with physics
 - [x] Create backpack sprite with details (headphones, eyes, limbs)
 - [x] Add character animations (running, jumping)
-- [ ] Implement character power-up states
+- [x] Implement character power-up states (speed boost)
 
 ## 3. Enemy Implementation
 - [x] Create stone people enemies (gray rectangles)
@@ -30,7 +30,7 @@
 - [x] Green grass ground
 - [x] Brown platforms
 - [x] Collision detection for all objects
-- [ ] Add parallax background layers
+- [x] Add parallax background layers
 - [ ] Create multiple levels with increasing difficulty
 - [ ] Add environmental hazards (spikes, pits)
 
@@ -52,7 +52,8 @@
 - [x] Score display
 - [x] Lives system with health UI
 - [ ] Level progression with unlockable stages
-- [x] Win/lose conditions
+- [ ] Win condition for collecting all items
+- [x] Lose condition with game over screen
 - [ ] Time-based challenges
 - [ ] Implement checkpoint system
 
@@ -74,23 +75,26 @@
 - All objects have proper physics and collisions
 - Enemies patrol between obstacles
 - Collectibles work as expected
+- Parallax backgrounds add depth
+- Speed power-up boosts player movement
 
 ## 9. UI/UX Improvements
 - [ ] Create polished start screen
 - [ ] Implement pause menu
-- [x] Add win/lose screens
+- [x] Add lose screen
+- [ ] Add win screen
 - [ ] Create level selection interface
 - [ ] Improve HUD with better visuals
 - [ ] Add settings menu (sound, controls)
 
 ## 10. Next Steps
-1. Replace placeholders with actual sprites
-2. Implement additional enemy types and behaviors
+1. Replace placeholders with actual sprites and polished visuals
+2. Implement additional enemy types (jumper, thrower, shooter) with unique behaviors
 3. Add sound effects and background music
-4. Create multiple levels with unique challenges
-5. Polish UI/UX with themed design elements
-6. Add game start/end screens
-7. Implement power-up system and inventory
-8. Add lives system and win/lose conditions
-9. Create parallax background layers
-10. Optimize game performance
+4. Create multiple levels with unique challenges and environmental hazards
+5. Build inventory system and add new power-ups (health, invincibility)
+6. Design start, pause, and settings menus plus improved HUD
+7. Implement win screen and level progression with checkpoints
+8. Add collectible animations and effects
+9. Optimize asset loading and overall performance
+10. Implement save/load functionality and game state management
