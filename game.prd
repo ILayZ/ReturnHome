@@ -13,7 +13,7 @@
 - [x] Implement jumping with physics
 - [x] Create backpack sprite with details (headphones, eyes, limbs)
 - [x] Add character animations (running, jumping)
-- [ ] Implement character power-up states
+- [x] Implement character power-up states (speed boost)
 
 ## 3. Enemy Implementation
 - [x] Create stone people enemies (gray rectangles)
@@ -22,7 +22,7 @@
 - [ ] Implement jumper enemy type
 - [ ] Implement thrower enemy type
 - [ ] Implement shooter enemy type
-- [ ] Create stone people sprites
+- [x] Create stone people sprites
 - [ ] Add enemy-specific behaviors and animations
 
 ## 4. Game Environment
@@ -30,7 +30,7 @@
 - [x] Green grass ground
 - [x] Brown platforms
 - [x] Collision detection for all objects
-- [ ] Add parallax background layers
+- [x] Add parallax background layers
 - [ ] Create multiple levels with increasing difficulty
 - [ ] Add environmental hazards (spikes, pits)
 
@@ -74,6 +74,8 @@
 - All objects have proper physics and collisions
 - Enemies patrol between obstacles
 - Collectibles work as expected
+- Parallax background adds depth
+- Speed power-up with visual feedback
 
 ## 9. UI/UX Improvements
 - [ ] Create polished start screen
@@ -84,13 +86,11 @@
 - [ ] Add settings menu (sound, controls)
 
 ## 10. Next Steps
-1. Replace placeholders with actual sprites
+1. Replace placeholders with polished sprites and animations
 2. Implement additional enemy types and behaviors
 3. Add sound effects and background music
-4. Create multiple levels with unique challenges
-5. Polish UI/UX with themed design elements
-6. Add game start/end screens
-7. Implement power-up system and inventory
-8. Add lives system and win/lose conditions
-9. Create parallax background layers
-10. Optimize game performance
+4. Create multiple levels with hazards and unique challenges
+5. Build UI elements: start menu, pause menu, settings, and improved HUD
+6. Expand power-up system with inventory and new item types
+7. Implement checkpoint and level progression systems with save/load
+8. Optimize asset loading and overall game performance
